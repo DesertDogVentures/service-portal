@@ -21,9 +21,31 @@
         >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Desert Dog Ventures - Service Portal 🚀</span>
+      <span class="raleway-text">Service Portal 🚀</span>
+        <span class="spacer"></span>
+        <ul>
+          <li *ngIf="!isAuthenticated">
+            <a mat-button routerLink='/auth/login' routerLinkActive='mat-accent'>Login</a>
+          </li>
+          <li *ngIf="!isAuthenticated">
+            <a mat-button routerLink='/auth/signup' routerLinkActive='mat-accent'>Sign up</a>
+          </li>
+          <li *ngIf="isAuthenticated">
+            <a mat-button routerLink='/events' routerLinkActive='mat-accent'>Events</a>
+          </li>
+          <li *ngIf="isAuthenticated">
+            <a mat-button [routerLink]="'/user/' + userId + '/profile'" routerLinkActive='mat-accent'>Profile</a>
+          </li>
+          <li *ngIf="isAuthenticated">
+            <a mat-button (click)="logout()">Logout</a>
+          </li>
+          <li>
+            <button style="outline: none;" mat-icon-button [matMenuTriggerFor]="appMenu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </li>
+        </ul>
     </mat-toolbar>
-    <app-dashboard></app-dashboard>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

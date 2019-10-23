@@ -2,12 +2,16 @@
   "name": "service-portal",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+ "ng": "ng",
+"start": "node server.js",
+"launch": "ng serve",
+"build": "ng build",
+"test": "ng test",
+"lint": "ng lint",
+"e2e": "ng e2e",
+"heroku-postbuild": "ng build --prod",
+"storybook": "start-storybook -p 6006",
+"build-storybook": "build-storybook"
   },
   "private": true,
   "dependencies": {
